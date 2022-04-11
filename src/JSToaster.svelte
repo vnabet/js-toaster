@@ -10,24 +10,23 @@
     <li class="toast warning">
       <div class="close"></div>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus nobis quibusdam impedit neque, necessitatibus possimus nam magnam amet perspiciatis quo blanditiis? Tempore vitae aliquam blanditiis fuga assumenda? Eos, qui cupiditate!</li>
   </ul>
+  <ul class="toast-list right bottom">
+    <li class="toast success"><div class="close"></div>RIGHT BOTTOM</li>
+  </ul>
   <ul class="toast-list left bottom">
     <li class="toast warning"><div class="close"></div>LEFT BOTTOM 1</li>
     <li class="toast info"><div class="close"></div>LEFT BOTTOM 2</li>
-  </ul>
-  <ul class="toast-list right bottom">
-    <li class="toast success"><div class="close"></div>RIGHT BOTTOM</li>
   </ul>
 </div>
 
 
 <style>
   :root {
-    --danger: #dc3545;
-    --success: #198754;
-    --warning: #fd7e14;
-    --info: #0d6efd;
+    --jstoaster-danger: #dc3545;
+    --jstoaster-success: #198754;
+    --jstoaster-warning: #fd7e14;
+    --jstoaster-info: #0d6efd;
   }
-  
 
   :global(body) {
     min-height: 100vh;
@@ -49,26 +48,35 @@
   }
 
   .toast-list {
-    position: absolute;
+    /* position: absolute; */
+    position: relative;
     display: flex;
-    row-gap: 20px;
+    row-gap: 10px;
     margin: 10px;
+    /* ----- */
+    flex-direction: column;
   }
 
   .toast {
     position: relative;
     list-style: none;
-    width: 250px;
+    /* width: 250px; */
+    width: 100%;
     min-height: 80px;
     overflow: hidden;
     box-shadow: 0 10px 15px rgba(0, 0, 0, .3);
     display: flex;
     align-items: center;
     background: #f6f6f6;
-    border: 1px solid #ccc;
-    padding: 5px;
+    /* border: 1px solid #ccc; */
+    border-width: 1px 1px 6px 1px;
+    border-style: solid;
+    border-color: #ccc;
+    padding: 20px 5px 5px 5px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 14PX;
+    /* ----- */
+    border-radius: 5px 5px 0 0;
   }
 
   .close {
@@ -80,6 +88,8 @@
     position: absolute;
     top: 2px;
     cursor: pointer;
+    /* ----- */
+    right: 2px;
   }
 
   .close::before, .close::after {
@@ -99,79 +109,111 @@
     transform: rotate(-45deg);
   }
 
-  .left {
-    left: 0;
+  .toast.success {
+    border-bottom-color: var(--jstoaster-success);
   }
 
-  .left .toast {
-    border-radius: 0 5px 5px 0;
-    border-left-width: 6px;
-    border-left-style: solid;
-    justify-content: left;
-    text-align: left;
-    padding-right: 20px;
+  .toast.danger {
+    border-bottom-color: var(--jstoaster-danger);
   }
 
-  .left .toast.success {
-    border-left-color: var(--success);
+  .toast.warning {
+    border-bottom-color: var(--jstoaster-warning);
   }
 
-  .left .toast.danger {
-    border-left-color: var(--danger);
+  .toast.info {
+    border-bottom-color: var(--jstoaster-info);
   }
 
-  .left .toast.warning {
-    border-left-color: var(--warning);
-  }
+  @media(min-width: 576px) {
+    .toast-list {
+      position: absolute;
+      row-gap: 20px;
+    }
 
-  .left .toast.info {
-    border-left-color: var(--info);
-  }
+    .toast {
+      width: 250px;
+      border: 1px solid #ccc;
+    }
 
-  .left .close {
-    right: 2px;
-  }
+    .toast.danger, .toast.warning, .toast.success, .toast.info {
+      border-bottom-color: #ccc;
+    }
 
-  .right {
-    right: 0;
-  }
+    .top {
+      top: 0;
+      flex-direction: column;
+    }
 
-  .right .toast {
-    border-radius: 5px 0 0 5px;
-    border-right-width: 6px;
-    border-right-style: solid;
-    justify-content: right;
-    text-align: right;
-    padding-left: 20px;
-  }
+    .bottom {
+      bottom: 0;
+      flex-direction: column-reverse;
+    } 
 
-  .right .toast.success {
-    border-right-color: var(--success);
-  }
+    .left {
+      left: 0;
+    }
 
-  .right .toast.danger {
-    border-right-color: var(--danger);
-  }
+    .left .toast {
+      border-radius: 0 5px 5px 0;
+      border-left-width: 6px;
+      border-left-style: solid;
+      justify-content: left;
+      text-align: left;
+      padding: 5px 20px 5px 5px;
+    }
 
-  .right .toast.warning {
-    border-right-color: var(--warning);
-  }
+    .left .toast.success {
+      border-left-color: var(--jstoaster-success);
+    }
 
-  .right .toast.info {
-    border-right-color: var(--info);
-  }
+    .left .toast.danger {
+      border-left-color: var(--jstoaster-danger);
+    }
 
-  .right .close {
-    left: 2px;
-  }
+    .left .toast.warning {
+      border-left-color: var(--jstoaster-warning);
+    }
 
-  .top {
-    top: 0;
-    flex-direction: column;
-  }
+    .left .toast.info {
+      border-left-color: var(--jstoaster-info);
+    }
 
-  .bottom {
-    bottom: 0;
-    flex-direction: column-reverse;
+    .left .close {
+      right: 2px;
+    }
+
+    .right {
+      right: 0;
+    }
+
+    .right .toast {
+      border-radius: 5px 0 0 5px;
+      border-right-width: 6px;
+      border-right-style: solid;
+      justify-content: right;
+      text-align: right;
+      padding: 5px 5px 5px 20px;
+    }
+
+    .right .toast.success {
+      border-right-color: var(--jstoaster-success);
+    }
+
+    .right .toast.danger {
+      border-right-color: var(--jstoaster-danger);
+    }
+
+    .right .toast.warning {
+      border-right-color: var(--jstoaster-warning);
+    }
+
+    .right .toast.info {
+      border-right-color: var(--jstoaster-info);
+    }
+
+    .right .close {
+      left: 2px;
+    }
   }
 </style>
