@@ -1,4 +1,4 @@
-<div class="jstoaster dark">
+<div class="jstoaster">
   <ul class="toast-list left top">
     <li class="toast danger">
       <div class="close"></div>
@@ -26,10 +26,14 @@
     --jstoaster-success: #198754;
     --jstoaster-warning: #fd7e14;
     --jstoaster-info: #0d6efd;
+    --jstoaster-light: #f6f6f6;
+    --jstoaster-dark: #222;
+    --jstoaster-grey: #ccc;
   }
 
   :global(body) {
     min-height: 100vh;
+    /* background-color: #222; */
   }
   .jstoaster {
     position: absolute;
@@ -67,16 +71,16 @@
     box-shadow: 0 10px 15px rgba(0, 0, 0, .3);
     display: flex;
     align-items: center;
-    background: #f6f6f6;
+    background: var(--jstoaster-light);
     /* border: 1px solid #ccc; */
     border-width: 1px 1px 6px 1px;
     border-style: solid;
-    border-color: #ccc;
+    border-color: var(--jstoaster-grey);
     padding: 20px 5px 5px 5px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 14PX;
     font-weight: 600;
-    color: black;
+    color: var(--jstoaster-dark);
     /* ----- */
     /* border-radius: 5px 5px 0 0; */
     border-radius: 5px;
@@ -93,6 +97,7 @@
     cursor: pointer;
     /* ----- */
     right: 2px;
+    opacity: .7;
   }
 
   .close::before, .close::after {
@@ -100,7 +105,7 @@
     content: '';
     width: 3px;
     height: 15px;
-    background: #707070;
+    background: var(--jstoaster-dark);
     border-radius: 2px;
   }
 
@@ -129,12 +134,13 @@
   }
 
   .dark .toast {
-    background: #222;
-    color: #ccc;
+    background: var(--jstoaster-dark);
+    color: var(--jstoaster-grey);
+    border-color: var(--jstoaster-light);
   }
 
   .dark .close::before, .dark .close::after {
-    background: #ccc;
+    background: var(--jstoaster-grey);
   }
 
 
@@ -146,11 +152,11 @@
 
     .toast {
       width: 250px;
-      border: 1px solid #ccc;
+      border: 1px solid var(--jstoaster-grey);
     }
 
     .toast.danger, .toast.warning, .toast.success, .toast.info {
-      border-bottom-color: #ccc;
+      border-bottom-color: var(--jstoaster-grey);
     }
 
     .top {
