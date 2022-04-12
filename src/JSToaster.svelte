@@ -76,7 +76,8 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 14PX;
     /* ----- */
-    border-radius: 5px 5px 0 0;
+    /* border-radius: 5px 5px 0 0; */
+    border-radius: 5px;
   }
 
   .close {
@@ -155,40 +156,7 @@
     }
 
     .left .toast {
-      border-radius: 0 5px 5px 0;
-      border-left-width: 6px;
-      border-left-style: solid;
-      justify-content: left;
-      text-align: left;
-      padding: 5px 20px 5px 5px;
-    }
-
-    .left .toast.success {
-      border-left-color: var(--jstoaster-success);
-    }
-
-    .left .toast.danger {
-      border-left-color: var(--jstoaster-danger);
-    }
-
-    .left .toast.warning {
-      border-left-color: var(--jstoaster-warning);
-    }
-
-    .left .toast.info {
-      border-left-color: var(--jstoaster-info);
-    }
-
-    .left .close {
-      right: 2px;
-    }
-
-    .right {
-      right: 0;
-    }
-
-    .right .toast {
-      border-radius: 5px 0 0 5px;
+      /* border-radius: 0 5px 5px 0; */
       border-right-width: 6px;
       border-right-style: solid;
       justify-content: right;
@@ -196,24 +164,57 @@
       padding: 5px 5px 5px 20px;
     }
 
-    .right .toast.success {
+    .left .toast.success {
       border-right-color: var(--jstoaster-success);
     }
 
-    .right .toast.danger {
+    .left .toast.danger {
       border-right-color: var(--jstoaster-danger);
     }
 
-    .right .toast.warning {
+    .left .toast.warning {
       border-right-color: var(--jstoaster-warning);
     }
 
-    .right .toast.info {
+    .left .toast.info {
       border-right-color: var(--jstoaster-info);
     }
 
-    .right .close {
+    .left .close {
       left: 2px;
+    }
+
+    .right {
+      right: 0;
+    }
+
+    .right .toast {
+      /* border-radius: 5px 0 0 5px; */
+      border-left-width: 6px;
+      border-left-style: solid;
+      justify-content: left;
+      text-align: left;
+      padding: 5px 20px 5px 5px;
+    }
+
+    .right .toast.success {
+      border-left-color: var(--jstoaster-success);
+    }
+
+    .right .toast.danger {
+      border-left-color: var(--jstoaster-danger);
+    }
+
+    .right .toast.warning {
+      border-left-color: var(--jstoaster-warning);
+    }
+
+    .right .toast.info {
+      border-left-color: var(--jstoaster-info);
+    }
+
+    .right .close {
+      right: 2px;
     }
   }
 </style>
