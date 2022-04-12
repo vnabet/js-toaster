@@ -1,3 +1,3 @@
 # js-toaster
 
-Agnostic javascript notifications library"firstgit
+Agnostic javascript notifications library
