@@ -1,4 +1,4 @@
-<div class="jstoaster">
+<div class="jstoaster dark">
   <ul class="toast-list left top">
     <li class="toast danger">
       <div class="close"></div>
@@ -75,6 +75,8 @@
     padding: 20px 5px 5px 5px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 14PX;
+    font-weight: 600;
+    color: black;
     /* ----- */
     /* border-radius: 5px 5px 0 0; */
     border-radius: 5px;
@@ -125,6 +127,16 @@
   .toast.info {
     border-bottom-color: var(--jstoaster-info);
   }
+
+  .dark .toast {
+    background: #222;
+    color: #ccc;
+  }
+
+  .dark .close::before, .dark .close::after {
+    background: #ccc;
+  }
+
 
   @media(min-width: 576px) {
     .toast-list {
