@@ -1,7 +1,10 @@
 <div class="jstoaster">
   <ul class="toast-list left top">
     <li class="toast danger">
-      <div class="close"></div>
+      <div class="header">
+        <div class="title">Je fais un essai</div>
+        <div class="close"></div>
+      </div>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, et hic facilis explicabo nam sapiente laudantium delectus, enim praesentium eum debitis, recusandae eveniet animi velit sequi cumque error saepe! Debitis.
     </li>
     <li class="toast success"><div class="close"></div>LEFT TOP 2</li>
@@ -70,7 +73,7 @@
     overflow: hidden;
     box-shadow: 0 10px 15px rgba(0, 0, 0, .3);
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     background: var(--jstoaster-light);
     /* border: 1px solid #ccc; */
     border-width: 1px 1px 6px 1px;
@@ -84,6 +87,13 @@
     /* ----- */
     /* border-radius: 5px 5px 0 0; */
     border-radius: 5px;
+    flex-direction: column;
+  }
+
+  .header {
+    position: relative;
+    display: flex;
+    flex-direction: row-reverse;
   }
 
   .close {
@@ -92,7 +102,7 @@
     align-items: center;
     width: 20px;
     height: 20px;
-    position: absolute;
+    /* position: absolute; */
     top: 2px;
     cursor: pointer;
     /* ----- */
