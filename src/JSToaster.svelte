@@ -1,4 +1,4 @@
-<div class="jstoaster dark">
+<div class="jstoaster">
   <ul class="toast-list left top">
     <li class="toast danger">
       <div class="header">
@@ -204,7 +204,9 @@
   .dark .toast {
     background: var(--jstoaster-dark);
     color: var(--jstoaster-grey);
-    border-color: var(--jstoaster-light);
+    border-top-color: var(--jstoaster-light);
+    border-left-color: var(--jstoaster-light);
+    border-right-color: var(--jstoaster-light);
   }
 
   .dark .close::before, .dark .close::after {
@@ -225,6 +227,10 @@
 
     .toast.danger, .toast.warning, .toast.success, .toast.info {
       border-bottom-color: var(--jstoaster-grey);
+    }
+
+    .dark .toast.danger,.dark .toast.warning,.dark .toast.success,.dark .toast.info {
+      border-bottom-color: var(--jstoaster-light);
     }
 
     .top {
