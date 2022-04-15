@@ -1,24 +1,64 @@
-<div class="jstoaster">
+<div class="jstoaster dark">
   <ul class="toast-list left top">
     <li class="toast danger">
       <div class="header">
         <div class="title">Je fais un essai</div>
         <div class="close"></div>
       </div>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, et hic facilis explicabo nam sapiente laudantium delectus, enim praesentium eum debitis, recusandae eveniet animi velit sequi cumque error saepe! Debitis.
+      <div class="message">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, et hic facilis explicabo nam sapiente laudantium delectus, enim praesentium eum debitis, recusandae eveniet animi velit sequi cumque error saepe! Debitis.
+      </div>
     </li>
-    <li class="toast success"><div class="close"></div>LEFT TOP 2</li>
+    <li class="toast success">
+      <div class="header">
+        <div class="title">Je fais un essai</div>
+        <div class="close"></div>
+      </div>
+      <div class="message">
+        TOP LEFT 2
+      </div>
+    </li>
   </ul>
   <ul class="toast-list right top">
     <li class="toast warning">
-      <div class="close"></div>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus nobis quibusdam impedit neque, necessitatibus possimus nam magnam amet perspiciatis quo blanditiis? Tempore vitae aliquam blanditiis fuga assumenda? Eos, qui cupiditate!</li>
+      <div class="header">
+        <div class="title">Je fais un essai</div>
+        <div class="close"></div>
+      </div>
+      <div class="message">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, et hic facilis explicabo nam sapiente laudantium delectus, enim praesentium eum debitis, recusandae eveniet animi velit sequi cumque error saepe! Debitis.
+      </div>
   </ul>
   <ul class="toast-list right bottom">
-    <li class="toast success"><div class="close"></div>RIGHT BOTTOM</li>
+    <li class="toast success">
+      <div class="header">
+        <div class="title"></div>
+        <div class="close"></div>
+      </div>
+      <div class="message">
+        RIGHT BOTTOM
+      </div>
+    </li>
   </ul>
   <ul class="toast-list left bottom">
-    <li class="toast warning"><div class="close"></div>LEFT BOTTOM 1</li>
-    <li class="toast info"><div class="close"></div>LEFT BOTTOM 2</li>
+    <li class="toast warning">
+      <div class="header">
+        <div class="title"></div>
+        <div class="close"></div>
+      </div>
+      <div class="message">
+        LEFT BOTTOM 1
+      </div>
+    </li>
+    <li class="toast info">
+      <div class="header">
+        <div class="title">COUCOU</div>
+        <div class="close"></div>
+      </div>
+      <div class="message">
+        LEFT BOTTOM 2
+      </div>
+    </li>
   </ul>
 </div>
 
@@ -79,10 +119,10 @@
     border-width: 1px 1px 6px 1px;
     border-style: solid;
     border-color: var(--jstoaster-grey);
-    padding: 20px 5px 5px 5px;
+    /* padding: 20px 5px 5px 5px; */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 14PX;
-    font-weight: 600;
+    font-weight: 400;
     color: var(--jstoaster-dark);
     /* ----- */
     /* border-radius: 5px 5px 0 0; */
@@ -93,7 +133,25 @@
   .header {
     position: relative;
     display: flex;
-    flex-direction: row-reverse;
+    /* flex-direction: row-reverse;
+    justify-content: flex-end; */
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+  .title {
+    width: 100%;
+    text-align: left;
+    padding: 5px;
+    font-weight: 600;
+    font-size: 15px;
+  }
+
+  .message {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    padding: 5px;
   }
 
   .close {
@@ -189,7 +247,19 @@
       border-right-style: solid;
       justify-content: right;
       text-align: right;
-      padding: 5px 5px 5px 20px;
+      /* padding: 5px 5px 5px 20px; */
+    }
+
+    .left .header {
+      flex-direction: row-reverse;
+    }
+
+    .left .title {
+      text-align: right;
+    }
+
+    .left .message {
+      justify-content: right;
     }
 
     .left .toast.success {
@@ -222,7 +292,7 @@
       border-left-style: solid;
       justify-content: left;
       text-align: left;
-      padding: 5px 20px 5px 5px;
+      /* padding: 5px 20px 5px 5px; */
     }
 
     .right .toast.success {
