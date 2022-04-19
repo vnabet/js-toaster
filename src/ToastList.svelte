@@ -104,12 +104,12 @@
     /* flex-direction: row-reverse;
     justify-content: flex-end; */
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: space-between;
   }
 
   .title {
-    width: 100%;
-    text-align: left;
+    /* width: 100%; */
+    /* text-align: left; */
     padding: 5px;
     font-weight: 600;
     font-size: 15px;
@@ -226,10 +226,6 @@
 
     .left .header {
       flex-direction: row-reverse;
-    }
-
-    .left .title {
-      text-align: right;
     }
 
     .left .message {
