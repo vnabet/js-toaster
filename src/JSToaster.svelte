@@ -5,6 +5,13 @@
 <script lang="ts">
 
   import ToastList from './ToastList.svelte';
+  export function config() {
+    console.log('CONFIGURATION');
+  }
+
+  export function toast() {
+    console.log('NOTIFICATION')
+  }
 </script>
 
 <style>

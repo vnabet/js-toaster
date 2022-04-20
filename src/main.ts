@@ -1,7 +1,7 @@
-import App from './JSToaster.svelte'
+import JSToaster from './JSToaster.svelte'
 
-const app = new App({
+const jsToaster = new JSToaster({
   target: document.body
 })
 
-export default app
+export default jsToaster;

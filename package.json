@@ -5,9 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && npm run minifyJS && cp package.json dist/package.json && cp README.md dist/README.md",
     "preview": "vite preview",
-    "check": "svelte-check --tsconfig ./tsconfig.json"
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "minifyJS": "terser ./dist/jsToaster.js -o ./dist/jsToaster.min.js"
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^1.0.0-next.30",
@@ -15,6 +16,7 @@
     "svelte": "^3.44.0",
     "svelte-check": "^2.2.7",
     "svelte-preprocess": "^4.9.8",
+    "terser": "^5.12.1",
     "tslib": "^2.3.1",
     "typescript": "^4.5.4",
     "vite": "^2.9.0"
