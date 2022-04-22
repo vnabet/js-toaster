@@ -9,12 +9,14 @@
       
     </style>
     <script type="module">
-      import jsToaster from './src/main.ts';
+      import JSToaster from './src/main.ts';
 
-      console.log('APP', jsToaster);
+      JSToaster.init();
+      JSToaster.toast('VOUVOVOVO');
+      // window.setInterval(()=> {
+      // JSToaster.toast(new Date());
 
-      jsToaster.config();
-      jsToaster.toast();
+      // }, 2000)
     </script>
   </head>
   <body>

@@ -61,6 +61,12 @@
   </li>
 </ul> -->
 
+<script lang="ts">
+  export function test() {
+    console.log('TESt');
+  }
+</script>
+
 <style>
   .toast-list {
     /* position: absolute; */

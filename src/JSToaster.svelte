@@ -3,15 +3,31 @@
 </div>
 
 <script lang="ts">
-
+  import {onMount} from 'svelte';
+  import type {Unsubscriber} from 'svelte/store';
   import ToastList from './ToastList.svelte';
-  export function config() {
-    console.log('CONFIGURATION');
-  }
+  import {toasts} from './JSToaster.store';
 
-  export function toast() {
-    console.log('NOTIFICATION')
-  }
+
+  onMount(() => {
+    console.log('MoUNTED');
+
+    const unsub:Unsubscriber = toasts.subscribe((ts) => {
+      console.log('TOASTS', ts);
+    })
+
+    return () => {
+      unsub();
+    }
+  })
+
+  // export function config() {
+  //   console.log('CONFIGURATION');
+  // }
+
+  // export function toast() {
+  //   console.log('NOTIFICATION')
+  // }
 </script>
 
 <style>
