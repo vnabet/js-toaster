@@ -6,6 +6,8 @@
 
     class:left={position === ToastPosition.topLeft || position === ToastPosition.bottomLeft}
     class:right={position === ToastPosition.topRight || position === ToastPosition.bottomRight}
+
+    class:dark={toast.dark}
 >
   <div class="header">
     <div class="title">{toast.title || ''}</div>
@@ -120,7 +122,7 @@
     border-bottom-color: var(--jstoaster-info);
   }
 
-  .dark .toast {
+  .dark.toast {
     background: var(--jstoaster-dark);
     color: var(--jstoaster-grey);
     border-top-color: var(--jstoaster-light);
@@ -142,7 +144,7 @@
       border-bottom-color: var(--jstoaster-grey);
     }
 
-    .dark .toast.danger,.dark .toast.warning,.dark .toast.success,.dark .toast.info {
+    .dark.toast.danger,.dark.toast.warning,.dark.toast.success,.dark.toast.info {
       border-bottom-color: var(--jstoaster-light);
     }
 

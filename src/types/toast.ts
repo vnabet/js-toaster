@@ -10,6 +10,7 @@ export type Toast = {
   position?: ToastPosition;
   type?: ToastType;
   displayTime?: number; //secondes
+  dark?: boolean;
   //TODO soundUrl
   //TODO click event on toast
   //TODO Image ?
