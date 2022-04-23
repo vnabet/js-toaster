@@ -5,7 +5,7 @@ class:left={position === ToastPosition.bottomLeft || position === ToastPosition.
 class:right={position === ToastPosition.bottomRight || position === ToastPosition.topRight}
 >
   {#each toasts as toast (toast.id)}
-    <ToastComponent toast={toast}></ToastComponent>
+    <ToastComponent toast={toast} position={position}></ToastComponent>
   {/each}
 </ul>
 
