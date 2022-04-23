@@ -14,18 +14,27 @@
       jsToaster.toast({
         message: 'Je fais un essai',
         title: 'Title',
-        displayTime: 40,
+        displayTime: 10,
         // type: 'danger'
       });
 
       jsToaster.conf ={
         position: 'bottomLeft',
-        type: 'warning'
+        type: 'warning',
+        displayTime: 5
       };
 
       window.setTimeout(() => {
         jsToaster.toast('Je fais un autre essai')
-      }, 2000)
+      }, 2000);
+
+      jsToaster.toast({
+        message: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, saepe.',
+        title: 'Moi je reste',
+        displayTime: 0,
+        type: 'success'
+        // type: 'danger'
+      });
 
     </script>
   </head>

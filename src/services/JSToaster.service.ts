@@ -10,6 +10,7 @@ export interface IJSToasterService {
 
 class JSToasterService implements IJSToasterService {
   private toastConf:Toast;
+  private timeout:number | null = null;
 
   public get conf() {
     return this.toastConf;
@@ -31,12 +32,37 @@ class JSToasterService implements IJSToasterService {
     t = {...this.toastConf, ...t};
     t.timestamp = (new Date()).getTime() + (t.displayTime * 1000);
     
-    // window.setTimeout(() => {
-    //   console.log('END', t.timestamp - (new Date()).getTime())
-    // }, t.timestamp - (new Date()).getTime())
-    
     t.id = parseInt(`${Math.round(Math.random()*1000)}${t.timestamp}`)
     toasts.update((ts) => [...ts, t]);
+
+    this.toastsUpdated();
+  }
+
+  private toastsUpdated() {
+    let toastsArr:Toast[] = get(toasts);
+
+    if(toastsArr && toastsArr.length > 0) {
+      if(this.timeout) {
+        window.clearTimeout(this.timeout);
+        this.timeout = null;
+      }
+  
+      toastsArr = toastsArr
+      .filter((t:Toast) => t.displayTime)
+      .sort((t1:Toast, t2:Toast) => t1.timestamp - t2.timestamp);
+
+      if(toastsArr.length > 0) {
+        const toastToDelete:Toast = toastsArr[0];
+        let time = toastToDelete.timestamp - (new Date()).getTime();
+        if(time < 0) time = 0;
+        this.timeout = window.setTimeout(() => {
+          toasts.update((toasts:Toast[]) => {
+            return toasts.filter((t:Toast) => t.id !== toastToDelete.id);
+          })
+          this.toastsUpdated();
+        }, time);
+      }
+    }
   }
 }
 
