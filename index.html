@@ -9,17 +9,17 @@
       
     </style>
     <script type="module">
-      import JSToaster from './src/main.ts';
+      import {jsToaster} from './src/main.ts';
 
-      JSToaster.init();
-      JSToaster.toast({
-        content: 'Je fais un essai'
+      jsToaster.toast({
+        content: 'Je fais un essai',
+        title: 'Title'
       });
-      
-      // window.setInterval(()=> {
-      // JSToaster.toast(new Date());
 
-      // }, 2000)
+      window.setTimeout(() => {
+        jsToaster.toast('Je fais un autre essai')
+      }, 2000)
+
     </script>
   </head>
   <body>

@@ -1,29 +1,33 @@
+import type { Toast } from './types/toast';
 import JSToasterComponent from './JSToaster.svelte';
-import JSToasterService from './services/JSToaster.service';
+import {jsToasterService, IJSToasterService} from './services/JSToaster.service';
 
-
-export default class JSToaster {
-  private static app:JSToasterComponent | null;
-  private static service:JSToasterService | null;
+class JSToaster {
+  private app:JSToasterComponent | null;
+  private service:IJSToasterService | null;
 
   constructor() {
-    return null;
+    this.app = new JSToasterComponent({
+      target: document.body
+    });
+
+    this.service = jsToasterService;
   }
 
-  static init() {
-    if(!JSToaster.app && !JSToaster.service) {
-        JSToaster.app = new JSToasterComponent({
-        target: document.body
-      });
-
-      JSToaster.service = new JSToasterService();
-
+  toast(toast:Toast | string) {
+    let t:Toast;
+    if(typeof toast === 'string') {
+      t = {
+        content : toast
+      };
+    } else {
+      t = toast;
     }
-  }
-
-  static toast(t:any) {
     // if(JSToaster.app) JSToaster.app.toast();
 
-    if(JSToaster.service) JSToaster.service.toast(t);
+    if(this.service) this.service.toast(t);
   }
+
 }
+
+export const jsToaster = new JSToaster();
