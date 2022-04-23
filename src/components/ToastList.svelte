@@ -5,7 +5,12 @@ class:left={position === ToastPosition.bottomLeft || position === ToastPosition.
 class:right={position === ToastPosition.bottomRight || position === ToastPosition.topRight}
 >
   {#each toasts as toast (toast.id)}
-  <li class="toast danger">
+  <li class="toast"
+    class:danger={toast.type === ToastType.danger}
+    class:success={toast.type === ToastType.success}
+    class:warning={toast.type === ToastType.warning}
+    class:info={toast.type === ToastType.info}
+  >
     <div class="header">
       <div class="title">{toast.title || ''}</div>
       <div class="close"></div>
@@ -15,61 +20,10 @@ class:right={position === ToastPosition.bottomRight || position === ToastPositio
     </div>
   </li>
   {/each}
-  <!-- <li class="toast success">
-    <div class="header">
-      <div class="title">Je fais un essai</div>
-      <div class="close"></div>
-    </div>
-    <div class="message">
-      TOP LEFT 2
-    </div>
-  </li> -->
 </ul>
-<!-- <ul class="toast-list right top">
-  <li class="toast warning">
-    <div class="header">
-      <div class="title">Je fais un essai</div>
-      <div class="close"></div>
-    </div>
-    <div class="message">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, et hic facilis explicabo nam sapiente laudantium delectus, enim praesentium eum debitis, recusandae eveniet animi velit sequi cumque error saepe! Debitis.
-    </div>
-</ul>
-<ul class="toast-list right bottom">
-  <li class="toast success">
-    <div class="header">
-      <div class="title"></div>
-      <div class="close"></div>
-    </div>
-    <div class="message">
-      RIGHT BOTTOM
-    </div>
-  </li>
-
-</ul>
-<ul class="toast-list left bottom">
-  <li class="toast warning">
-    <div class="header">
-      <div class="title"></div>
-      <div class="close"></div>
-    </div>
-    <div class="message">
-      LEFT BOTTOM 1
-    </div>
-  </li>
-  <li class="toast info">
-    <div class="header">
-      <div class="title">COUCOU</div>
-      <div class="close"></div>
-    </div>
-    <div class="message">
-      LEFT BOTTOM 2
-    </div>
-  </li>
-</ul> -->
 
 <script lang="ts">
-import {Toast, ToastPosition} from '../types/toast'
+import {Toast, ToastPosition, ToastType} from '../types/toast'
 
 export let toasts:Toast[];
 export let position:ToastPosition = ToastPosition.topRight;
