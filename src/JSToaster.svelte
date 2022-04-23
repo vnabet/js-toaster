@@ -25,7 +25,6 @@ import { ToastPosition } from './types/toast';
 
   :global(body) {
     min-height: 100vh;
-    /* background-color: #222; */
   }
   .jstoaster {
     position: absolute;

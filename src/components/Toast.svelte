@@ -28,25 +28,19 @@
   .toast {
     position: relative;
     list-style: none;
-    /* width: 250px; */
     width: 100%;
     min-height: 80px;
     overflow: hidden;
     box-shadow: 0 10px 15px rgba(0, 0, 0, .3);
     display: flex;
-    /* align-items: center; */
     background: var(--jstoaster-light);
-    /* border: 1px solid #ccc; */
     border-width: 1px 1px 6px 1px;
     border-style: solid;
     border-color: var(--jstoaster-grey);
-    /* padding: 20px 5px 5px 5px; */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 14PX;
     font-weight: 400;
     color: var(--jstoaster-dark);
-    /* ----- */
-    /* border-radius: 5px 5px 0 0; */
     border-radius: 5px;
     flex-direction: column;
   }
@@ -54,15 +48,11 @@
   .header {
     position: relative;
     display: flex;
-    /* flex-direction: row-reverse;
-    justify-content: flex-end; */
     flex-direction: row;
     justify-content: space-between;
   }
 
   .title {
-    /* width: 100%; */
-    /* text-align: left; */
     padding: 5px;
     font-weight: 600;
     font-size: 15px;
@@ -81,10 +71,8 @@
     align-items: center;
     width: 20px;
     height: 20px;
-    /* position: absolute; */
     top: 2px;
     cursor: pointer;
-    /* ----- */
     right: 2px;
     opacity: .7;
   }
@@ -149,12 +137,10 @@
     }
 
     .left.toast {
-      /* border-radius: 0 5px 5px 0; */
       border-right-width: 6px;
       border-right-style: solid;
       justify-content: right;
       text-align: right;
-      /* padding: 5px 5px 5px 20px; */
     }
 
     .left .header {
@@ -186,12 +172,10 @@
     }
 
     .right.toast {
-      /* border-radius: 5px 0 0 5px; */
       border-left-width: 6px;
       border-left-style: solid;
       justify-content: left;
       text-align: left;
-      /* padding: 5px 20px 5px 5px; */
     }
 
     .right.toast.success {

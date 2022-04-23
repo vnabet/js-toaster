@@ -20,12 +20,10 @@ export let position:ToastPosition = ToastPosition.topRight;
 
 <style>
   .toast-list {
-    /* position: absolute; */
     position: relative;
     display: flex;
     row-gap: 10px;
     margin: 10px;
-    /* ----- */
     flex-direction: column;
   }
 
