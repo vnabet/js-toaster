@@ -3,7 +3,8 @@
  */
 export type Toast = {
   title?: string;
-  message: string;
+  content: string;
+  timestamp?:number;
   link?: string;
   position?: ToastPosition;
   type?: ToastType;

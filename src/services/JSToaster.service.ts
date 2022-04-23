@@ -1,4 +1,4 @@
-
+import type { Toast } from './../types/toast';
 import {toasts} from '../stores/JSToaster.store';
 
 export default class JSToasterService {
@@ -11,7 +11,8 @@ export default class JSToasterService {
     return JSToasterService.instance;
   }
 
-  public toast(t:any) {
+  public toast(t:Toast) {
+    t.timestamp = (new Date()).getTime();
     toasts.update((ts) => [...ts, t]);
   }
 
