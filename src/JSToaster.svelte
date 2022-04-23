@@ -5,8 +5,9 @@
 <script lang="ts">
   import {onMount} from 'svelte';
   import type {Unsubscriber} from 'svelte/store';
-  import ToastList from './ToastList.svelte';
-  import {toasts} from './JSToaster.store';
+  import ToastList from './components/ToastList.svelte';
+  import {toasts} from './stores/JSToaster.store';
+  
 
 
   onMount(() => {

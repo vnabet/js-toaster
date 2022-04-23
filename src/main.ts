@@ -1,5 +1,5 @@
 import JSToasterComponent from './JSToaster.svelte';
-import JSToasterService from './JSToaster.service';
+import JSToasterService from './services/JSToaster.service';
 
 
 export default class JSToaster {

@@ -1,5 +1,5 @@
 
-import {toasts} from './JSToaster.store';
+import {toasts} from '../stores/JSToaster.store';
 
 export default class JSToasterService {
   private static instance:JSToasterService | null;
