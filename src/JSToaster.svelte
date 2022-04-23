@@ -7,15 +7,13 @@
   import type {Unsubscriber} from 'svelte/store';
   import ToastList from './components/ToastList.svelte';
   import {toasts} from './stores/JSToaster.store';
-  
-
 
   onMount(() => {
     console.log('MoUNTED');
 
     const unsub:Unsubscriber = toasts.subscribe((ts) => {
       console.log('TOASTS', ts);
-    })
+    });
 
     return () => {
       unsub();

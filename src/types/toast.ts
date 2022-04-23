@@ -1,14 +1,34 @@
-export type toast = {
-  title: string;
+/**
+ * Toast definition
+ */
+export type Toast = {
+  title?: string;
   message: string;
-  link: string | null;
-  position: Position | null;
-
+  link?: string;
+  position?: ToastPosition;
+  type?: ToastType;
+  displayTime?: number; //secondes
+  //TODO soundUrl
+  //TODO click event on toast
+  //TODO Image ?
 }
 
-export enum Position {
+/**
+ * Toast screen position
+ */
+export enum ToastPosition {
   topLeft = 'topLeft',
   topRight =  'topRight',
   bottomRight = 'bottomRight',
   bottomLeft = 'botomLeft'
+}
+
+/**
+ * Toast type defines the css Toast color
+ */
+export enum ToastType {
+  info = 'info',
+  success = 'success',
+  warning = 'warning',
+  error = 'error'
 }
