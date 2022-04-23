@@ -22,7 +22,7 @@ class JSToaster {
     let t:Toast;
     if(typeof toast === 'string') {
       t = {
-        content : toast
+        message: toast
       };
     } else {
       t = toast;

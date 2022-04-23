@@ -1,32 +1,15 @@
 <div class="jstoaster dark">
-  <ToastList></ToastList>
+  <ToastList toasts={$toasts} position={ToastPosition.topLeft}></ToastList>
+  <ToastList toasts={$toasts} position={ToastPosition.topRight}></ToastList>
+  <ToastList toasts={$toasts} position={ToastPosition.bottomRight}></ToastList>
+  <ToastList toasts={$toasts} position={ToastPosition.bottomLeft}></ToastList>
 </div>
 
 <script lang="ts">
-  import {onMount} from 'svelte';
-  import type {Unsubscriber} from 'svelte/store';
   import ToastList from './components/ToastList.svelte';
   import {toasts} from './stores/JSToaster.store';
+import { ToastPosition } from './types/toast';
 
-  onMount(() => {
-    console.log('MoUNTED');
-
-    const unsub:Unsubscriber = toasts.subscribe((ts) => {
-      console.log('TOASTS', ts);
-    });
-
-    return () => {
-      unsub();
-    }
-  })
-
-  // export function config() {
-  //   console.log('CONFIGURATION');
-  // }
-
-  // export function toast() {
-  //   console.log('NOTIFICATION')
-  // }
 </script>
 
 <style>

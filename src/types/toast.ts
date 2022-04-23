@@ -4,7 +4,7 @@
 export type Toast = {
   id?:number;
   title?: string;
-  content?: string;
+  message?: string;
   timestamp?:number;
   link?: string;
   position?: ToastPosition;
