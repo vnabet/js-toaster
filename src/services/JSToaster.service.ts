@@ -28,9 +28,9 @@ class JSToasterService implements IJSToasterService {
   }
 
   public toast(t:Toast) {
-    t.timestamp = (new Date()).getTime();
-    t.id = parseInt(`${Math.round(Math.random()*1000)}${t.timestamp}`)
     t = {...this.toastConf, ...t};
+    t.timestamp = (new Date()).getTime() + (t.displayTime * 1000);
+    t.id = parseInt(`${Math.round(Math.random()*1000)}${t.timestamp}`)
     toasts.update((ts) => [...ts, t]);
   }
 }
