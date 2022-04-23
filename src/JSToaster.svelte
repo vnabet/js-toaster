@@ -8,8 +8,7 @@
 <script lang="ts">
   import ToastList from './components/ToastList.svelte';
   import {topLeftToasts, topRightToasts, bottomLeftToasts, bottomRightToasts} from './stores/JSToaster.store';
-import { ToastPosition } from './types/toast';
-
+  import { ToastPosition } from './types/toast';
 </script>
 
 <style>

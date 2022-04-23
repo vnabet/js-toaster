@@ -10,11 +10,11 @@ class:right={position === ToastPosition.bottomRight || position === ToastPositio
 </ul>
 
 <script lang="ts">
-import {Toast, ToastPosition, ToastType} from '../types/toast';
-import ToastComponent from './Toast.svelte';
+  import {Toast, ToastPosition, ToastType} from '../types/toast';
+  import ToastComponent from './Toast.svelte';
 
-export let toasts:Toast[];
-export let position:ToastPosition = ToastPosition.topRight;
+  export let toasts:Toast[];
+  export let position:ToastPosition = ToastPosition.topRight;
 
 </script>
 
