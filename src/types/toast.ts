@@ -2,6 +2,7 @@
  * Toast definition
  */
 export type Toast = {
+  id?:number;
   title?: string;
   content?: string;
   timestamp?:number;
