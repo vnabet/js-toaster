@@ -1,13 +1,13 @@
 <div class="jstoaster dark">
-  <ToastList toasts={$toasts} position={ToastPosition.topLeft}></ToastList>
-  <ToastList toasts={$toasts} position={ToastPosition.topRight}></ToastList>
-  <ToastList toasts={$toasts} position={ToastPosition.bottomRight}></ToastList>
-  <ToastList toasts={$toasts} position={ToastPosition.bottomLeft}></ToastList>
+  <ToastList toasts={$topLeftToasts} position={ToastPosition.topLeft}></ToastList>
+  <ToastList toasts={$topRightToasts} position={ToastPosition.topRight}></ToastList>
+  <ToastList toasts={$bottomRightToasts} position={ToastPosition.bottomRight}></ToastList>
+  <ToastList toasts={$bottomLeftToasts} position={ToastPosition.bottomLeft}></ToastList>
 </div>
 
 <script lang="ts">
   import ToastList from './components/ToastList.svelte';
-  import {toasts} from './stores/JSToaster.store';
+  import {topLeftToasts, topRightToasts, bottomLeftToasts, bottomRightToasts} from './stores/JSToaster.store';
 import { ToastPosition } from './types/toast';
 
 </script>

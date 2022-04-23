@@ -22,7 +22,7 @@ export enum ToastPosition {
   topLeft = 'topLeft',
   topRight =  'topRight',
   bottomRight = 'bottomRight',
-  bottomLeft = 'botomLeft'
+  bottomLeft = 'bottomLeft'
 }
 
 /**
