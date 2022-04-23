@@ -18,6 +18,11 @@
         type: 'error'
       });
 
+      jsToaster.conf ={
+        position: 'topLeft',
+        type: 'warning'
+      };
+
       window.setTimeout(() => {
         jsToaster.toast('Je fais un autre essai')
       }, 2000)

@@ -14,6 +14,10 @@ class JSToaster {
     this.service = jsToasterService;
   }
 
+  public set conf(toastConf:Toast) {
+    this.service.conf = toastConf;
+  }
+
   toast(toast:Toast | string) {
     let t:Toast;
     if(typeof toast === 'string') {
@@ -23,7 +27,6 @@ class JSToaster {
     } else {
       t = toast;
     }
-    // if(JSToaster.app) JSToaster.app.toast();
 
     if(this.service) this.service.toast(t);
   }

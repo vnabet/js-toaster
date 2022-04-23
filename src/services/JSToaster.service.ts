@@ -1,23 +1,25 @@
 import { defaultToastConf } from './../defaultToastConf';
 import type { Toast } from './../types/toast';
 import {toasts} from '../stores/JSToaster.store';
-import { defaultToastConf } from '../defaultToastConf';
 
 export interface IJSToasterService {
   toast(t:Toast);
+  conf:Toast;
 }
 
 class JSToasterService implements IJSToasterService {
-  //private static instance:JSToasterService | null;
-
   private toastConf:Toast;
+
+  public get conf() {
+    return this.toastConf;
+  }
+
+  public set conf(toastConf:Toast) {
+    this.toastConf = {...this.toastConf, ...toastConf};
+  }
 
   constructor() {
     this.toastConf = defaultToastConf;
-    // if(JSToasterService.instance === null) {
-    //   JSToasterService.instance = this;
-    // }
-    // return JSToasterService.instance;
   }
 
   public toast(t:Toast) {
