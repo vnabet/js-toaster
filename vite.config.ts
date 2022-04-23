@@ -18,7 +18,7 @@ export default defineConfig({
     emptyOutDir: false,
     minify: false,
     lib: {
-      entry: path.resolve("src/main.ts"),
+      entry: path.resolve("src/JSToaster.ts"),
       name: "FileManager",
       formats: ["es"],
       fileName:  () => "jsToaster.js",
