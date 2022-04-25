@@ -1,8 +1,22 @@
 {
   "name": "js-toaster",
-  "private": false,
   "version": "0.5.0",
   "type": "module",
+  "main": "jsToaster.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vnabet/js-toaster.git"
+  },
+  "keywords": [
+    "notifications",
+    "toast"
+  ],
+  "author": "Vincent Nabet",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vnabet/js-toaster/issues"
+  },
+  "homepage": "https://github.com/vnabet/js-toaster#readme",
   "scripts": {
     "dev": "vite",
     "build": "vite build && npm run minifyJS && cpy package.json dist/ && cpy README.md dist/",
