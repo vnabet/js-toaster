@@ -2,6 +2,7 @@ import { defaultToastConf } from './../defaultToastConf';
 import type { Toast } from './../types/toast';
 import {toasts} from '../stores/JSToaster.store';
 import {get} from 'svelte/store';
+import type Toast from 'src/components/Toast.svelte';
 
 export interface IJSToasterService {
   toast(t:Toast);
@@ -36,6 +37,13 @@ class JSToasterService implements IJSToasterService {
     toasts.update((ts) => [...ts, t]);
 
     this.toastsUpdated();
+  }
+
+  public closeToast(toast:Toast) {
+    if(toast) {
+      toasts.update((toasts:Toast[]) => toasts.filter((t) => t.id !== toast.id));
+      this.toastsUpdated();
+    }
   }
 
   private toastsUpdated() {

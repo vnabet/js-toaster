@@ -22,11 +22,14 @@
 
 <script lang="ts">
   import {Toast, ToastPosition, ToastType} from '../types/toast';
+  import {jsToasterService} from '../services/JSToaster.service';
   export let toast:Toast;
   export let position:ToastPosition = ToastPosition.topRight;
 
   function closeHandler() {
-    console.log('CLOSE')
+    if(toast) {
+      jsToasterService.closeToast(toast);
+    }
   }
 
   function clickHandler() {
