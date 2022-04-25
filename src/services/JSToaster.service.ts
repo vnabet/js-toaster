@@ -23,10 +23,6 @@ class JSToasterService implements IJSToasterService {
 
   constructor() {
     this.toastConf = defaultToastConf;
-
-    // window.setInterval(() => {
-    //   console.log('STORE', get(toasts))
-    // }, 10000)
   }
 
   public toast(t:Toast) {
