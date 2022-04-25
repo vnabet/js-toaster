@@ -1,4 +1,6 @@
-<li class="toast"
+<li class="toast" on:click={clickHandler}
+    style:cursor = {toast.link?'pointer':'default'}
+
     class:danger={toast.type === ToastType.danger}
     class:success={toast.type === ToastType.success}
     class:warning={toast.type === ToastType.warning}
@@ -11,7 +13,7 @@
 >
   <div class="header">
     <div class="title">{toast.title || ''}</div>
-    <div class="close"></div>
+    <div class="close" on:click|capture|stopPropagation={closeHandler}></div>
   </div>
   <div class="message">
     {toast.message}
@@ -22,6 +24,14 @@
   import {Toast, ToastPosition, ToastType} from '../types/toast';
   export let toast:Toast;
   export let position:ToastPosition = ToastPosition.topRight;
+
+  function closeHandler() {
+    console.log('CLOSE')
+  }
+
+  function clickHandler() {
+    if(toast && toast.link) document.location.href = toast.link;
+  }
 </script>
 
 <style>
