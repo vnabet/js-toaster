@@ -4,13 +4,13 @@ class:bottom={position === ToastPosition.bottomLeft || position === ToastPositio
 class:left={position === ToastPosition.bottomLeft || position === ToastPosition.topLeft}
 class:right={position === ToastPosition.bottomRight || position === ToastPosition.topRight}
 >
-  {#each toasts as toast (toast.id)}
-    <ToastComponent toast={toast} position={position}></ToastComponent>
+  {#each toasts as t (t.id)}
+    <ToastComponent toast={t} position={position}></ToastComponent>
   {/each}
 </ul>
 
 <script lang="ts">
-  import {Toast, ToastPosition, ToastType} from '../types/toast';
+  import {Toast, ToastPosition} from '../types/toast';
   import ToastComponent from './Toast.svelte';
 
   export let toasts:Toast[];
