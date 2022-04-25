@@ -3,6 +3,7 @@
   "version": "0.5.0",
   "type": "module",
   "main": "jsToaster.js",
+  "types": "jsToaster.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/vnabet/js-toaster.git"
@@ -19,7 +20,7 @@
   "homepage": "https://github.com/vnabet/js-toaster#readme",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && npm run minifyJS && cpy package.json dist/ && cpy README.md dist/",
+    "build": "vite build && npm run minifyJS && cpy package.json README.md jsToaster.d.ts dist/",
     "preview": "vite preview",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "minifyJS": "terser ./dist/jsToaster.js -o ./dist/jsToaster.min.js"
