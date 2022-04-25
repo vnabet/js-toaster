@@ -25,7 +25,15 @@
       };
 
       window.setTimeout(() => {
-        jsToaster.toast('Je fais un autre essai')
+        jsToaster.toast('Je fais un autre essai');
+        jsToaster.toast({
+        message: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, saepe.',
+        title: 'Moi je reste aussi',
+        displayTime: 0,
+        type: 'success',
+        position: 'topRight'
+        // type: 'danger'
+      });
       }, 2000);
 
       jsToaster.toast({

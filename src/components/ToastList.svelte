@@ -23,7 +23,7 @@ class:right={position === ToastPosition.bottomRight || position === ToastPositio
     position: relative;
     display: flex;
     row-gap: 10px;
-    margin: 10px;
+    margin: 5px 10px;
     flex-direction: column;
   }
 
@@ -31,6 +31,7 @@ class:right={position === ToastPosition.bottomRight || position === ToastPositio
     .toast-list {
       position: absolute;
       row-gap: 20px;
+      margin: 10px;
     }
 
     .top {
