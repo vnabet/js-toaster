@@ -48,7 +48,7 @@
     box-shadow: 0 10px 15px rgba(0, 0, 0, .3);
     display: flex;
     background: var(--jstoaster-light);
-    border-width: 1px 1px 6px 1px;
+    border-width: 1px 1px 8px 1px;
     border-style: solid;
     border-color: var(--jstoaster-grey);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -83,7 +83,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 20px;
+    min-width: 20px;
     height: 20px;
     top: 2px;
     cursor: pointer;
@@ -127,9 +127,9 @@
   .dark.toast {
     background: var(--jstoaster-dark);
     color: var(--jstoaster-grey);
-    border-top-color: var(--jstoaster-light);
+    /* border-top-color: var(--jstoaster-light);
     border-left-color: var(--jstoaster-light);
-    border-right-color: var(--jstoaster-light);
+    border-right-color: var(--jstoaster-light); */
   }
 
   .dark .close::before, .dark .close::after {
@@ -138,7 +138,7 @@
 
   @media(min-width: 576px) {
     .toast {
-      width: 250px;
+      width: 300px;
       border: 1px solid var(--jstoaster-grey);
     }
 
@@ -146,12 +146,12 @@
       border-bottom-color: var(--jstoaster-grey);
     }
 
-    .dark.toast.danger,.dark.toast.warning,.dark.toast.success,.dark.toast.info {
+    /* .dark.toast.danger,.dark.toast.warning,.dark.toast.success,.dark.toast.info {
       border-bottom-color: var(--jstoaster-light);
-    }
+    } */
 
     .left.toast {
-      border-right-width: 6px;
+      border-right-width: 8px;
       border-right-style: solid;
       justify-content: right;
       text-align: right;
@@ -186,7 +186,7 @@
     }
 
     .right.toast {
-      border-left-width: 6px;
+      border-left-width: 8px;
       border-left-style: solid;
       justify-content: left;
       text-align: left;

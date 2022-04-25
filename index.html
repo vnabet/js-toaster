@@ -10,55 +10,98 @@
     </style>
     <script type="module">
       import {jsToaster} from './src/JSToaster.ts';
+      import { LoremIpsum } from "lorem-ipsum";
 
-      jsToaster.toast({
-        message: 'Je fais un essai',
-        title: 'Title',
-        displayTime: 10,
-        // type: 'danger'
+      const lorem = new LoremIpsum({
+        sentencesPerParagraph: {
+          max: 8,
+          min: 4
+        },
+        wordsPerSentence: {
+          max: 16,
+          min: 4
+        }
       });
 
-      jsToaster.toast({
-        message: 'Je fais un essai',
-        title: 'Title',
-        displayTime: 50,
-        position: 'bottomRight',
-        type: 'warning'
-      });
+      function rand(value) {
+        return Math.floor(Math.random() * value) + 1
+      }
 
-      jsToaster.conf ={
-        position: 'bottomLeft',
-        type: 'warning',
-        displayTime: 5
+      const positions = [
+        'topLeft', 'topRight', 'bottomRight', 'bottomLeft'
+      ]
+
+      const types = [
+        'warning', 'danger', 'success', 'info'
+      ]
+
+
+      let timeoutDuration = rand(5) + 5 * 1000;
+      let position;
+      let type;
+      let displayTime;
+      
+      const timeoutHandler = () => {
+
+      position = positions[rand(4) - 1];
+      type = types[rand(4) - 1];
+      displayTime = rand(10) + 20
+
+      jsToaster.toast({
+        title: `${position} ${type} - ${lorem.generateWords(rand(3))}`,
+        message: lorem.generateSentences(1),
+        position,
+        type,
+        displayTime: rand(4) === 1 ? 0 : displayTime,
+        dark: !(rand(3) - 1)
+      })
+
+      timeoutDuration = rand(5) + 5 * 1000;
+      window.setTimeout(timeoutHandler, timeoutDuration)
       };
+      
+      window.setTimeout(timeoutHandler, timeoutDuration)
 
-      window.setTimeout(() => {
-        jsToaster.toast('Je fais un autre essai');
-        jsToaster.toast({
-        message: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, saepe.',
-        title: 'Moi je reste aussi',
-        displayTime: 0,
-        type: 'danger',
-        position: 'topRight',
-        link: 'https:www.vincentnabet.fr'
-        // type: 'danger'
-      });
-      }, 2000);
-
-      jsToaster.toast({
-        message: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, saepe.',
-        title: 'Moi je reste',
-        displayTime: 0,
-        type: 'success',
-        dark: true
-        // type: 'danger'
-      });
+      // jsToaster.conf ={
+      //   position: 'bottomLeft',
+      //   type: 'warning',
+      //   displayTime: 5
+      // };
 
     </script>
   </head>
   <body>
     <h1>TEST</h1>
     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti ipsa asperiores ipsum iusto, nam, atque est iste in, dolorum quisquam veritatis! Dicta dolorem eius ratione maxime repellat laboriosam optio cupiditate.</p>
-    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus blanditiis, veritatis repellat placeat autem necessitatibus aliquam facilis temporibus in atque dolorem molestias voluptatum amet doloremque omnis expedita nostrum reprehenderit! Pariatur.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam veritatis quidem perferendis culpa natus nihil labore sint, voluptas molestias explicabo tenetur a dolorum rem eum quos minus harum quisquam distinctio.
+    Blanditiis, nostrum quas? Voluptatem, eligendi similique vel dicta doloremque mollitia cum quis amet, quibusdam voluptatibus omnis dolorum aperiam, debitis ex! Fugit, animi facere at esse vel eligendi similique quidem reiciendis?
+    Quibusdam, neque! Tenetur, temporibus enim. Totam, aliquid maxime soluta adipisci, eligendi alias minima dolore ratione facilis exercitationem officia vero ducimus cum illo veritatis debitis neque ex, consequuntur nostrum? Eligendi, accusamus.
+    Dolores doloribus quidem vero quo eligendi molestiae, obcaecati, accusantium iusto ipsa expedita eveniet alias? Suscipit molestias nobis, explicabo pariatur dolore tenetur, corrupti mollitia harum officiis enim perferendis rem nemo accusamus?
+    Consequatur nemo corporis eligendi iure quibusdam voluptas! Ipsa asperiores, dignissimos similique laboriosam doloremque porro autem quo laudantium magnam quibusdam repellat alias sed nihil corrupti incidunt quas consequuntur quis dolore voluptatum.
+    Sed similique voluptate porro assumenda. Aliquam similique praesentium tempora impedit neque, quae id nemo obcaecati ipsa labore quidem architecto ipsum adipisci a iusto. Natus officia laborum officiis delectus quae impedit?
+    Deleniti qui sunt incidunt blanditiis! Harum non accusantium in, quod fugit, est ducimus laborum qui maxime aperiam soluta iure odit tempore, optio ipsum distinctio officia? Praesentium natus at dolorem non.
+    Delectus, modi similique quo consectetur nemo dolores totam dolorem. Numquam id molestiae ex perspiciatis rem est esse officia delectus vitae suscipit totam, non ipsam atque hic magnam perferendis corrupti asperiores!
+    Dolorum accusamus earum sequi quo illum reiciendis itaque nobis! Minus ex libero ratione iure, nemo eum velit porro, fuga reprehenderit corporis hic placeat eligendi architecto itaque maiores aperiam explicabo quis?
+    Magni beatae repellat, necessitatibus reiciendis numquam vel sunt fugiat iusto, illo itaque dolores vero minima quia adipisci. Ipsum perferendis recusandae voluptates velit sunt, repellat aliquid magnam accusamus illo dolorum aut!
+    Aliquid nemo tenetur et soluta! Architecto saepe a illo tenetur minima. Sequi odit excepturi accusamus veritatis hic ratione id. Quaerat magnam ad ducimus molestias exercitationem, asperiores voluptatum voluptate molestiae nisi.
+    Corporis odit laborum omnis ea molestiae deleniti, deserunt odio quam dolores accusantium qui, libero ducimus cupiditate sint iure? Illo unde id reprehenderit. Laudantium maiores voluptate eveniet ratione pariatur officiis animi.
+    Provident, quibusdam libero quos quidem optio minus blanditiis earum facere dolore consectetur ipsum corrupti voluptate omnis! Ullam quaerat perspiciatis molestiae similique numquam soluta distinctio maxime vero ipsa, qui placeat vitae.
+    Assumenda hic suscipit soluta accusamus recusandae. Exercitationem facilis animi vel praesentium ullam nesciunt debitis cum repellendus voluptatem ipsa! At a odio corporis sit nisi molestias tempora, eum consequatur voluptates doloribus.
+    Odio maiores vel aut porro illo assumenda aperiam corporis odit perspiciatis exercitationem unde tenetur, molestias reprehenderit animi sequi, ipsa hic nostrum delectus, dolores praesentium rem? Pariatur, sapiente? Placeat, laboriosam deleniti?
+    Ducimus ea earum at itaque, distinctio mollitia, ad veritatis, sapiente iusto iure iste! Minus id iure harum assumenda vel consequatur labore debitis sit, architecto veniam, perferendis blanditiis recusandae rem nobis.
+    Assumenda mollitia nobis id distinctio. Magnam consequuntur ab at hic maiores, cum, distinctio similique in aliquid porro nostrum ullam magni id autem sapiente dolor vel explicabo? Rerum harum optio beatae.
+    Iure, praesentium. Ipsa pariatur temporibus asperiores quo quam fugiat iste nesciunt praesentium dignissimos nihil, exercitationem, facere, aut corporis iure facilis qui! Hic vitae, at earum quo mollitia quibusdam voluptates modi.
+    Perferendis reiciendis mollitia suscipit a, nulla soluta reprehenderit. Perspiciatis earum quia eveniet dolores voluptate aliquid veritatis ex veniam adipisci saepe, quod non asperiores quae maiores repellendus ad, nemo harum rem.
+    Et voluptatibus cumque sapiente blanditiis. Itaque ducimus nobis incidunt ea optio doloribus numquam, similique nihil laudantium ut quis mollitia error eaque quibusdam eum officiis magni, vel animi sunt tenetur? Et?
+    Nobis cum mollitia quo officiis! At accusamus nobis porro accusantium aspernatur expedita, amet quas natus, vitae vero esse nemo ipsa atque eveniet asperiores fuga! Est veniam vel cupiditate corrupti deserunt?
+    Tenetur, beatae a, nemo fugit ipsam dolorem aspernatur totam nesciunt numquam voluptatum eum. Corrupti voluptatem, magnam numquam recusandae dolore similique quod velit excepturi, inventore doloribus commodi mollitia vel expedita. Vitae.
+    Vero assumenda harum, nemo deserunt architecto ut id vel nobis quisquam, perspiciatis illum porro unde rerum! Sit maiores inventore natus corporis doloremque ea, sequi deserunt! Qui mollitia ex animi error!
+    Dolorem deserunt non inventore quis. Esse culpa quis possimus aperiam est laudantium ratione quod eligendi quidem facilis ducimus, necessitatibus consectetur libero inventore ipsam totam! Aliquid dicta quae modi sed accusamus!
+    Reiciendis aperiam dolores ad quo nulla minus, aut iste distinctio aliquid dolorum animi! At asperiores saepe iure soluta ratione dignissimos? Nam, natus! Odio quisquam id possimus sunt ex dolore eaque.
+    Perspiciatis quibusdam nostrum sunt, explicabo, labore assumenda inventore, corrupti nam voluptate rem quis ipsam voluptatem deleniti id mollitia architecto facilis. Cumque nisi quaerat vero reprehenderit totam, sapiente quia nam eum.
+    Neque deserunt aut sequi enim doloribus, nemo cumque numquam quo ut placeat. Quos consectetur mollitia exercitationem ad architecto quas facere dolore, ex et inventore ipsa autem nam porro deleniti quod!
+    Perspiciatis rem natus delectus. Harum omnis molestiae eaque cum explicabo veritatis deleniti in quod temporibus! Illo aperiam laudantium repellendus quo a sunt, tenetur beatae impedit recusandae fugiat! Totam, corrupti aliquam.
+    Adipisci dolorem consectetur sint iusto magnam quas, minus sed deserunt possimus architecto vel officiis, repellat quod porro dignissimos reprehenderit labore? Quod sint adipisci ab optio molestiae at velit repellendus magnam!
+    Officiis at illum, perspiciatis, optio temporibus earum quia animi ullam beatae iusto eum architecto, nobis veniam tempore sapiente commodi. Numquam ipsam delectus architecto corrupti amet quo! Veritatis nemo quam at?</p>
   </body>
 </html>
