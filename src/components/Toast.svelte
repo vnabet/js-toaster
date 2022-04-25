@@ -1,4 +1,4 @@
-<li class="toast" on:click={clickHandler}
+<li class="toast" on:click={clickHandler} transition:fly={{x: (toast.position === ToastPosition.topLeft || toast.position === ToastPosition.bottomLeft)?-500:500, duration: 500}}
     style:cursor = {toast.link?'pointer':'default'}
 
     class:danger={toast.type === ToastType.danger}
@@ -23,6 +23,7 @@
 <script lang="ts">
   import {Toast, ToastPosition, ToastType} from '../types/toast';
   import {jsToasterService} from '../services/JSToaster.service';
+  import {fly} from 'svelte/transition';
   export let toast:Toast;
   export let position:ToastPosition = ToastPosition.topRight;
 

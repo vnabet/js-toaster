@@ -26,6 +26,7 @@
     min-height: 100vh;
   }
   .jstoaster {
+    overflow: hidden;
     position: absolute;
     width: 100%;
     height: 100%;
