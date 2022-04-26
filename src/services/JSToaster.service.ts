@@ -1,5 +1,5 @@
 import { defaultToastConf } from './../defaultToastConf';
-import type { Toast, Configuration } from './../types/toast';
+import type { Toast, ToasterConf } from './../types/toast';
 import {toasts} from '../stores/JSToaster.store';
 import {get} from 'svelte/store';
 
@@ -9,11 +9,11 @@ export interface IJSToasterService {
 }
 
 class JSToasterService implements IJSToasterService {
-  private toasterConf:Configuration;
+  private toasterConf:ToasterConf;
   private toastConf:Toast;
   private timeout:number | null = null;
 
-  public get conf():Configuration {
+  public get conf():ToasterConf {
     return this.toasterConf;
   }
 
