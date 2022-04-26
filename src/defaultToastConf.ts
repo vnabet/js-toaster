@@ -1,6 +1,6 @@
-import { Toast, ToastPosition, ToastType } from './types/toast';
+import { ToastPosition, ToastType, ToasterConf } from './types/toast';
 
-export const defaultToastConf:Toast = {
+export const defaultToastConf:ToasterConf = {
   position: ToastPosition.topRight,
   type: ToastType.info,
   displayTime: 20,

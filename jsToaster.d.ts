@@ -3,16 +3,21 @@ declare class JSToaster {
   conf:Toast;
 }
 
-declare type Toast = {
+declare type BaseToast = {
+  position?: ToastPosition;
+  type?: ToastType;
+  displayTime?: number; //secondes
+  dark?: boolean;
+}
+
+declare type ToasterConf = BaseToast;
+
+declare type Toast = BaseToast & {
   id?:number;
   title?: string;
   message?: string;
   timestamp?:number;
   link?: string;
-  position?: ToastPosition;
-  type?: ToastType;
-  displayTime?: number; //secondes
-  dark?: boolean;
 }
 
 declare type ToastPosition = 'topLeft' | 'topRight' | 'bottomRight' | 'bottomLeft';

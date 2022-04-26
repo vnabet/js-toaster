@@ -45,7 +45,14 @@
 
       position = positions[rand(4) - 1];
       type = types[rand(4) - 1];
-      displayTime = rand(10) + 20
+      displayTime = rand(10) + 20;
+
+      // jsToaster.conf = {
+      //   dark: false,
+      //   position: 'topLeft',
+      //   displayTime: 2,
+      //   type: 'warning'
+      // }
 
       jsToaster.toast({
         title: `${position} ${type} - ${lorem.generateWords(rand(3))}`,

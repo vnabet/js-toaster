@@ -1,5 +1,5 @@
 import { defaultToastConf } from './../defaultToastConf';
-import type { Toast } from './../types/toast';
+import type { Toast, Configuration } from './../types/toast';
 import {toasts} from '../stores/JSToaster.store';
 import {get} from 'svelte/store';
 
@@ -9,19 +9,32 @@ export interface IJSToasterService {
 }
 
 class JSToasterService implements IJSToasterService {
+  private toasterConf:Configuration;
   private toastConf:Toast;
   private timeout:number | null = null;
 
-  public get conf() {
-    return this.toastConf;
+  public get conf():Configuration {
+    return this.toasterConf;
   }
 
-  public set conf(toastConf:Toast) {
-    this.toastConf = {...this.toastConf, ...toastConf};
+  public set conf(toasterConf:Toast) {
+    this.toasterConf = {...this.toasterConf, ...toasterConf};
+    this.toastConf = {
+      position: toasterConf.position || this.toastConf.position,
+      type: toasterConf.type || this.toastConf.type,
+      displayTime: toasterConf.displayTime >= 0?toasterConf.displayTime:this.toastConf.displayTime,
+      dark: toasterConf.dark || this.toastConf.dark
+    }
   }
 
   constructor() {
-    this.toastConf = defaultToastConf;
+    this.toasterConf = defaultToastConf;
+    this.toastConf = {
+      position: defaultToastConf.position,
+      type: defaultToastConf.type,
+      displayTime: defaultToastConf.displayTime,
+      dark: defaultToastConf.dark
+    }
   }
 
   public toast(t:Toast) {

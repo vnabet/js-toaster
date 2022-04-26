@@ -1,16 +1,27 @@
 /**
+ * Base for Toast & Config
+ */
+export type BaseToast = {
+  position?: ToastPosition;
+  type?: ToastType;
+  displayTime?: number; //secondes
+  dark?: boolean;
+}
+
+/**
+ * Configuration definition
+ */
+export type ToasterConf = BaseToast;
+
+/**
  * Toast definition
  */
-export type Toast = {
+export type Toast = BaseToast & {
   id?:number;
   title?: string;
   message?: string;
   timestamp?:number;
   link?: string;
-  position?: ToastPosition;
-  type?: ToastType;
-  displayTime?: number; //secondes
-  dark?: boolean;
   //TODO soundUrl
   //TODO click event on toast
   //TODO Image ?
