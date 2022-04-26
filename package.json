@@ -26,7 +26,7 @@
     "build": "vite build && npm run minifyJS && cpy package.json README.md jsToaster.d.ts dist/",
     "preview": "vite preview",
     "check": "svelte-check --tsconfig ./tsconfig.json",
-    "minifyJS": "terser ./dist/jsToaster.js -o ./dist/jsToaster.min.js"
+    "minifyJS": "terser ./dist/jsToaster.js --compress --toplevel --mangle -o ./dist/jsToaster.min.js"
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^1.0.0-next.30",
