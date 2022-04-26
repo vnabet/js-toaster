@@ -16,7 +16,7 @@ export default defineConfig({
         },
       },
     },
-    emptyOutDir: false,
+    emptyOutDir: true,
     minify: false,
     lib: {
       entry: path.resolve("src/JSToaster.ts"),
