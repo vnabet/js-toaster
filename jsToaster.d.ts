@@ -15,18 +15,8 @@ declare type Toast = {
   dark?: boolean;
 }
 
-declare enum ToastPosition {
-  topLeft = 'topLeft',
-  topRight =  'topRight',
-  bottomRight = 'bottomRight',
-  bottomLeft = 'bottomLeft'
-}
+declare type ToastPosition = 'topLeft' | 'topRight' | 'bottomRight' | 'bottomLeft';
+declare type ToastType = 'info' | 'success' | 'warning' | 'danger';
 
-declare enum ToastType {
-  info = 'info',
-  success = 'success',
-  warning = 'warning',
-  danger = 'danger'
-}
 
 export const jsToaster:JSToaster;
