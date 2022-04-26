@@ -1,15 +1,19 @@
 {
   "name": "js-toaster",
   "version": "0.5.1",
+  "type": "module",
   "main": "jsToaster.js",
   "types": "jsToaster.d.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/vnabet/js-toaster.git"
+    "url": "https://github.com/vnabet/js-toaster"
   },
   "keywords": [
-    "notifications",
-    "toast"
+    "notification",
+    "toast",
+    "alert",
+    "info",
+    "message"
   ],
   "author": "Vincent Nabet",
   "license": "MIT",
