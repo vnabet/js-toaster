@@ -1,7 +1,6 @@
 {
   "name": "js-toaster",
   "version": "0.5.0",
-  "type": "module",
   "main": "jsToaster.js",
   "types": "jsToaster.d.ts",
   "repository": {
