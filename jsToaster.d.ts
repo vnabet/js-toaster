@@ -13,10 +13,8 @@ declare type BaseToast = {
 declare type ToasterConf = BaseToast;
 
 declare type Toast = BaseToast & {
-  id?:number;
   title?: string;
   message?: string;
-  timestamp?:number;
   link?: string;
 }
 
