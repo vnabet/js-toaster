@@ -1,10 +1,10 @@
 # js-toaster
 
-Agnostic javascript notifications ES module
+Agnostic notifications javascript module
 
 ![](./screenshot.jpg)
 
-- [Demonstration on the jsfiddle site](https://jsfiddle.net/vnabet/owvh2c84/46/show)
+- [Demonstration on jsfiddle site](https://jsfiddle.net/vnabet/owvh2c84/46/show)
 
 ## Installation
 
