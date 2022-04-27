@@ -37,7 +37,7 @@ You can import sources too from [unpkg.com](https://unpkg.com/browse/js-toaster/
 You can override default toaster configuration
 ```js
 jsToaster.conf = {
-  displayTime: 20, //DEFAULT 20 - seconds
+  displayTime: 20, //DEFAULT 20 - seconds. 0 if there is no end
   dark: true | false, //DEFAULT false - Toast dark mode
   position: 'topLeft' | 'topRight' | 'bottomRight' | 'bottomLeft', //DEFAULT 'topRight'
   type: 'info' | 'success' | 'warning' | 'danger' //DEFAULT 'info' - Define the color of the toast
@@ -58,7 +58,7 @@ jsToaster.toast({
   message: 'My notification text',
   title: 'My notification title',
   link: 'link, if I click the toast',
-  displayTime: 20, //seconds
+  displayTime: 20, //seconds. 0 if there is no end
   dark: true | false, //Toast dark mode
   position: 'topLeft' | 'topRight' | 'bottomRight' | 'bottomLeft',
   type: 'info' | 'success' | 'warning' | 'danger' //Define the color of the toast

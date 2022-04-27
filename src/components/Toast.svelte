@@ -27,12 +27,18 @@
   export let toast:Toast;
   export let position:ToastPosition = ToastPosition.topRight;
 
+  /**
+   * Close the toast
+   */
   function closeHandler() {
     if(toast) {
       jsToasterService.closeToast(toast);
     }
   }
 
+  /**
+   * Redirection if the toast has a link
+   */
   function clickHandler() {
     if(toast && toast.link) document.location.href = toast.link;
   }

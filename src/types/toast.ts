@@ -1,20 +1,20 @@
 /**
- * Base for Toast & Config
+ * Base type for Toast & Config
  */
 export type BaseToast = {
   position?: ToastPosition;
   type?: ToastType;
-  displayTime?: number; //secondes
+  displayTime?: number; // seconds. 0 if there is no end
   dark?: boolean;
 }
 
 /**
- * Configuration definition
+ * Configuration type definition
  */
 export type ToasterConf = BaseToast;
 
 /**
- * Toast definition
+ * Toast (notification) type definition
  */
 export type Toast = BaseToast & {
   id?:number;
@@ -38,7 +38,7 @@ export enum ToastPosition {
 }
 
 /**
- * Toast type defines the css Toast color
+ * Toast type (defines the css Toast color)
  */
 export enum ToastType {
   info = 'info',
