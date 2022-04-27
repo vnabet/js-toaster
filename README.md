@@ -1,6 +1,6 @@
 # js-toaster
 
-Agnostic notifications ES module
+Agnostic notifications javascript module
 
 ![](./screenshot.jpg)
 
