@@ -27,6 +27,8 @@ You can import sources too from [unpkg.com](https://unpkg.com/browse/js-toaster/
 <link rel="stylesheet" href="https://unpkg.com/js-toaster@0.6.0/jsToaster.css">
 <script type="module">
   import { jsToaster } from 'https://unpkg.com/js-toaster@0.6.0/jsToaster.min.js';
+
+  ...
 </script>
 ```
 
