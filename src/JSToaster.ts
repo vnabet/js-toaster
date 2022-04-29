@@ -1,4 +1,4 @@
-import type { Toast, ToastClickHandler } from './types/toast';
+import type { Toast, ToastClickHandler, ToasterConf } from './types/toast';
 import JSToasterComponent from './JSToaster.svelte';
 import {jsToasterService, IJSToasterService} from './services/JSToaster.service';
 
@@ -28,7 +28,7 @@ class JSToaster {
   /**
    * JSToaster configuration setter
    */
-  public set conf(toastConf:Toast) {
+  public set conf(toastConf:ToasterConf) {
     this.service.conf = toastConf;
   }
 

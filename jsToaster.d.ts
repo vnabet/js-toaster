@@ -1,6 +1,6 @@
 declare class JSToaster {
   toast(toast: string | Toast): number;
-  conf:Toast;
+  conf:ToasterConf;
   onClickToast(handler:ToastClickHandler):void
 }
 

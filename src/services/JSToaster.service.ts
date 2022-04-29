@@ -9,7 +9,7 @@ import {get} from 'svelte/store';
 export interface IJSToasterService {
   toast(t:Toast):number;
   closeToast(t:Toast);
-  conf:Toast;
+  conf:ToasterConf;
 }
 
 /**
@@ -32,7 +32,7 @@ class JSToasterService implements IJSToasterService {
   /**
    * Configuration setter
    */
-  public set conf(toasterConf:Toast) {
+  public set conf(toasterConf:ToasterConf) {
     // Overrides JSToaster configuration
     this.toasterConf = {...this.toasterConf, ...toasterConf};
     // Overrides notifications default definition
