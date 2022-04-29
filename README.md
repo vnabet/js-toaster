@@ -78,7 +78,7 @@ About the `link` property:
 
 ### Click events
 
-If you define a `true` value for the `link` property of a toast, a click on this one generate a click event.
+If you define a `true` value for the `link` property of a toast, a click on this one generates a click event.
 
 These events can be captured using the function `jsToaster.onClickToast` to register handlers with toast id as parameter.
 
