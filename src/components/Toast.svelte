@@ -24,6 +24,9 @@
   import {Toast, ToastPosition, ToastType} from '../types/toast';
   import {jsToasterService} from '../services/JSToaster.service';
   import {fly} from 'svelte/transition';
+  import { createEventDispatcher } from 'svelte';
+	const dispatch = createEventDispatcher();
+
   export let toast:Toast;
   export let position:ToastPosition = ToastPosition.topRight;
 
@@ -37,10 +40,18 @@
   }
 
   /**
-   * Redirection if the toast has a link
+   * Redirection or dispatch event if the toast has a link attribute
    */
   function clickHandler() {
-    if(toast && toast.link) document.location.href = toast.link;
+    if(toast.link) {
+      //Redirection if the link is a string...
+      if(typeof toast.link === 'string') {
+        document.location.href = toast.link;
+      } else {
+        //...else dispatch click event
+        dispatch('toast-clicked', toast.id);
+      }
+    } 
   }
 </script>
 

@@ -53,15 +53,15 @@ jsToaster.conf = {
 
 You can just send a notification with a text (the toast will be sent with the default or override configuration)...
 ```js
-jsToaster.toast('My notification text');
+const id = jsToaster.toast('My notification text');
 ```
 
 ...or passing as a parameter a complete toast object
 ```js
-jsToaster.toast({
+const id = jsToaster.toast({
   message: 'My notification text',
   title: 'My notification title',
-  link: 'link, if I click the toast',
+  link: string | boolean //URL or boolean
   displayTime: 20, //seconds. 0 if there is no end
   dark: true | false, //Toast dark mode
   position: 'topLeft' | 'topRight' | 'bottomRight' | 'bottomLeft',
@@ -69,3 +69,21 @@ jsToaster.toast({
 });
 ```
 **Important note**: Only the `message` is required. The `title` and `link` can be empty. Other properties are optional and take as value those of the configuration.
+
+About the `link` property:
+ - A URL generate a redirection on clicking the toast
+ - A true value generate a click event ([see below](#click-events)) on clicking the toast
+
+`JSToaster.toast` function returns a toast identifier. This `id` is a number and is a useful reference when clicking on a toast
+
+### Click events
+
+If you define a `true` value for the `link` property of a toast, a click on this one generate a click event.
+
+These events can be captured using the function `jsToaster.onClickToast` to register handlers with toast id as parameter.
+
+```js
+jsToaster.onClickToast((id) => {
+  console.log('TOAST CLICKED', id);
+})
+```

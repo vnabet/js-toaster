@@ -12,6 +12,10 @@
       import {jsToaster} from './src/JSToaster.ts';
       import { LoremIpsum } from "lorem-ipsum";
 
+      jsToaster.onClickToast((id) => {
+        console.log('TOAST CLICKED', id)
+      })
+
       const lorem = new LoremIpsum({
         sentencesPerParagraph: {
           max: 8,
@@ -40,12 +44,15 @@
       let position;
       let type;
       let displayTime;
+      let link;
       
       const timeoutHandler = () => {
 
       position = positions[rand(4) - 1];
       type = types[rand(4) - 1];
       displayTime = rand(10) + 20;
+
+      link = rand(2)-1?'https://github.com/vnabet/js-toaster':true;
 
       // jsToaster.conf = {
       //   dark: false,
@@ -56,11 +63,12 @@
 
       const id = jsToaster.toast({
         title: `${position} ${type} - ${lorem.generateWords(rand(3))}`,
-        message: lorem.generateSentences(1),
+        message: lorem.generateSentences(1) + (link!==true?` (${link})`:''),
         position,
         type,
         displayTime: rand(4) === 1 ? 0 : displayTime,
-        dark: !(rand(3) - 1)
+        dark: !(rand(3) - 1),
+        link
       });
 
       console.log('TOAST ID', id)

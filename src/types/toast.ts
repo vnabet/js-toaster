@@ -21,7 +21,7 @@ export type Toast = BaseToast & {
   title?: string;
   message?: string;
   timestamp?:number;
-  link?: string;
+  link?: string | boolean;
   //TODO soundUrl
   //TODO click event on toast
   //TODO Image ?
@@ -46,3 +46,5 @@ export enum ToastType {
   warning = 'warning',
   danger = 'danger'
 }
+
+export type ToastClickHandler = {(id:number):void};

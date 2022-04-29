@@ -1,4 +1,4 @@
-import type { Toast } from './types/toast';
+import type { Toast, ToastClickHandler } from './types/toast';
 import JSToasterComponent from './JSToaster.svelte';
 import {jsToasterService, IJSToasterService} from './services/JSToaster.service';
 
@@ -9,11 +9,18 @@ import {jsToasterService, IJSToasterService} from './services/JSToaster.service'
 class JSToaster {
   private app:JSToasterComponent | null;
   private service:IJSToasterService | null;
+  //Toasts click handlers list
+  private clickHandlers:ToastClickHandler[] = [];
 
   constructor() {
     this.app = new JSToasterComponent({
       target: document.body
     });
+
+    //On svelte toast click event we call each handler registered in the JSToaster handlers list
+    this.app.$on('toast-clicked', (event:CustomEvent) => {
+      this.clickHandlers.forEach((handler:ToastClickHandler) => handler(event.detail));
+    })
   
     this.service = jsToasterService;
   }
@@ -46,6 +53,13 @@ class JSToaster {
     }
   }
 
+  /**
+   * Register a toast click handler
+   * @param handler handler function
+   */
+  onClickToast(handler:ToastClickHandler):void {
+    this.clickHandlers.push(handler);
+  }
 }
 
 // * Module exports an instance of JToaster

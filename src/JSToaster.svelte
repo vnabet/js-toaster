@@ -1,8 +1,8 @@
 <div class="jstoaster dark">
-  <ToastListComponent toasts={$topLeftToasts} position={ToastPosition.topLeft}></ToastListComponent>
-  <ToastListComponent toasts={$topRightToasts} position={ToastPosition.topRight}></ToastListComponent>
-  <ToastListComponent toasts={$bottomRightToasts} position={ToastPosition.bottomRight}></ToastListComponent>
-  <ToastListComponent toasts={$bottomLeftToasts} position={ToastPosition.bottomLeft}></ToastListComponent>
+  <ToastListComponent toasts={$topLeftToasts} position={ToastPosition.topLeft} on:toast-clicked></ToastListComponent>
+  <ToastListComponent toasts={$topRightToasts} position={ToastPosition.topRight} on:toast-clicked></ToastListComponent>
+  <ToastListComponent toasts={$bottomRightToasts} position={ToastPosition.bottomRight} on:toast-clicked></ToastListComponent>
+  <ToastListComponent toasts={$bottomLeftToasts} position={ToastPosition.bottomLeft} on:toast-clicked></ToastListComponent>
 </div>
 
 <script lang="ts">
