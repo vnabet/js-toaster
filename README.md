@@ -74,7 +74,7 @@ About the `link` property:
  - A URL generate a redirection on clicking the toast
  - A true value generate a click event ([see below](#click-events)) on clicking the toast
 
-`JSToaster.toast` function returns a toast identifier. This `id` is a number and is a useful reference when clicking on a toast
+`jsToaster.toast` function returns a toast identifier. This `id` is a number and is a useful reference when clicking on a toast
 
 ### Click events
 
