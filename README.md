@@ -1,3 +1,7 @@
+[![npm](https://img.shields.io/npm/v/js-toaster.svg)](http://npm.im/test-vite-vite)
+[![Publish](https://github.com/vnabet/js-toaster/actions/workflows/publish.yml/badge.svg)](https://github.com/vnabet/js-toaster/actions/workflows/publish.yml)
+
+
 # js-toaster
 
 Agnostic notifications javascript module
