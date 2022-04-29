@@ -29,7 +29,7 @@ class JSToaster {
    * Send a notification
    * @param toast notification detail (string or Toast object)
    */
-  toast(toast:Toast | string) {
+  toast(toast:Toast | string):number {
     let t:Toast;
     if(typeof toast === 'string') {
       t = {
@@ -39,7 +39,11 @@ class JSToaster {
       t = toast;
     }
 
-    if(this.service) this.service.toast(t);
+    if(this.service) {
+      return this.service.toast(t);
+    } else {
+      return 0;
+    }
   }
 
 }

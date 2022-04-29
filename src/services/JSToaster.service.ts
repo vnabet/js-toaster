@@ -7,7 +7,7 @@ import {get} from 'svelte/store';
  * JSToaster Service interface
  */
 export interface IJSToasterService {
-  toast(t:Toast);
+  toast(t:Toast):number;
   closeToast(t:Toast);
   conf:Toast;
 }
@@ -60,7 +60,7 @@ class JSToasterService implements IJSToasterService {
    * Send a Toast (notification)
    * @param t Toast
    */
-  public toast(t:Toast) {
+  public toast(t:Toast):number {
     // Completes toast missing values with default definition
     t = {...this.toastConf, ...t};
     // Defines toast end of life
@@ -71,6 +71,8 @@ class JSToasterService implements IJSToasterService {
     toasts.update((ts) => [...ts, t]);
     // updates the next toast to hide
     this.toastsUpdated();
+
+    return t.id;
   }
 
   /**

@@ -1,5 +1,5 @@
 declare class JSToaster {
-  toast(toast: string | Toast): void;
+  toast(toast: string | Toast): number;
   conf:Toast;
 }
 

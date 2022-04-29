@@ -54,14 +54,16 @@
       //   type: 'warning'
       // }
 
-      jsToaster.toast({
+      const id = jsToaster.toast({
         title: `${position} ${type} - ${lorem.generateWords(rand(3))}`,
         message: lorem.generateSentences(1),
         position,
         type,
         displayTime: rand(4) === 1 ? 0 : displayTime,
         dark: !(rand(3) - 1)
-      })
+      });
+
+      console.log('TOAST ID', id)
 
       timeoutDuration = rand(5) + 5 * 1000;
       window.setTimeout(timeoutHandler, timeoutDuration)
