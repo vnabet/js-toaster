@@ -24,11 +24,18 @@
   import {Toast, ToastPosition, ToastType} from '../types/toast';
   import {jsToasterService} from '../services/JSToaster.service';
   import {fly} from 'svelte/transition';
-  import { createEventDispatcher } from 'svelte';
+  import { createEventDispatcher, onDestroy } from 'svelte';
 	const dispatch = createEventDispatcher();
 
   export let toast:Toast;
   export let position:ToastPosition = ToastPosition.topRight;
+
+  /**
+   * Toast closed or hidden triggers a close event
+  */
+  onDestroy(() => {
+    dispatch('toast-closed', toast.id);
+  })
 
   /**
    * Close the toast

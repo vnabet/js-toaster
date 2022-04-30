@@ -16,6 +16,10 @@
         console.log('TOAST CLICKED', id)
       })
 
+      jsToaster.onCloseToast((id) => {
+        console.log('TOAST CLOSED', id)
+      })
+
       const lorem = new LoremIpsum({
         sentencesPerParagraph: {
           max: 8,

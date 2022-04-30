@@ -1,7 +1,8 @@
 declare class JSToaster {
   toast(toast: string | Toast): number;
   conf:ToasterConf;
-  onClickToast(handler:ToastClickHandler):void
+  onClickToast(handler:ToastHandler):void
+  onCloseToast(handler:ToastHandler):void
 }
 
 declare type BaseToast = {
@@ -22,7 +23,7 @@ declare type Toast = BaseToast & {
 declare type ToastPosition = 'topLeft' | 'topRight' | 'bottomRight' | 'bottomLeft';
 declare type ToastType = 'info' | 'success' | 'warning' | 'danger';
 
-declare type ToastClickHandler = {(id:number):void};
+declare type ToastHandler = {(id:number):void};
 
 
 export const jsToaster:JSToaster;

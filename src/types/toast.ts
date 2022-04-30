@@ -47,4 +47,4 @@ export enum ToastType {
   danger = 'danger'
 }
 
-export type ToastClickHandler = {(id:number):void};
+export type ToastHandler = {(id:number):void};
