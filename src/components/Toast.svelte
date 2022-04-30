@@ -57,6 +57,7 @@
       } else {
         //...else dispatch click event
         dispatch('toast-clicked', toast.id);
+        jsToasterService.closeToast(toast);
       }
     } 
   }
