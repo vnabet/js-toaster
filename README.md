@@ -70,8 +70,8 @@ const id = jsToaster.toast({
 **Important note**: Only the `message` is required. The `title` and `link` can be empty. Other properties are optional and take as value those of the configuration.
 
 About the `link` property:
- - A URL generates a redirection on clicking the toast
- - A true value triggers a click or close event ([see below](#click-events)) on clicking the toast
+ - A URL generates a redirection on clicking the toast.
+ - A `true` value triggers a click event ([see below](#click-events)) on clicking the toast. The toast is closed after the click.
 
 `jsToaster.toast` function returns a toast identifier. This `id` is a number and is a useful reference when clicking on a toast
 
