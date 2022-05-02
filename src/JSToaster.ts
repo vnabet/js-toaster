@@ -1,6 +1,7 @@
 import type { Toast, ToastHandler, ToasterConf } from './types/toast';
 import JSToasterComponent from './JSToaster.svelte';
 import {jsToasterService, IJSToasterService} from './services/JSToaster.service';
+import { defaultToastConf } from './defaultToastConf';
 
 /**
  * JSToaster Class
@@ -13,6 +14,8 @@ class JSToaster {
   private clickHandlers:ToastHandler[] = [];
   //Toasts click handlers list
   private closeHandlers:ToastHandler[] = [];
+  // JSToaster configuration
+  private toasterConf:ToasterConf;
 
   constructor() {
     this.app = new JSToasterComponent({
@@ -30,13 +33,18 @@ class JSToaster {
     });
   
     this.service = jsToasterService;
+    this.toasterConf = defaultToastConf;
+    this.service.conf = defaultToastConf;
   }
 
   /**
    * JSToaster configuration setter
    */
-  public set conf(toastConf:ToasterConf) {
-    this.service.conf = toastConf;
+  public set conf(toasterConf:ToasterConf) {
+    // Overrides JSToaster configuration
+    this.toasterConf = {...this.toasterConf, ...toasterConf};
+    this.service.conf = this.toasterConf;
+    this.app.$set({conf: this.toasterConf})
   }
 
   /**
@@ -72,7 +80,7 @@ class JSToaster {
    * Register a toast close handler
    * @param handler handler function
    */
-   onCloseToast(handler:ToastHandler):void {
+  onCloseToast(handler:ToastHandler):void {
     this.closeHandlers.push(handler);
   }
 }

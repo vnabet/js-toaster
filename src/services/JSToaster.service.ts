@@ -1,4 +1,3 @@
-import { defaultToastConf } from './../defaultToastConf';
 import type { Toast, ToasterConf } from './../types/toast';
 import {toasts} from '../stores/JSToaster.store';
 import {get} from 'svelte/store';
@@ -16,44 +15,24 @@ export interface IJSToasterService {
  * JSToaster Service
  */
 class JSToasterService implements IJSToasterService {
-  // JSToaster configuration
-  private toasterConf:ToasterConf;
   // Notifications default definition
   private toastConf:Toast;
   private timeout:number | null = null;
 
   /**
-   * Configuration getter
-   */
-  public get conf():ToasterConf {
-    return this.toasterConf;
-  }
-
-  /**
    * Configuration setter
    */
   public set conf(toasterConf:ToasterConf) {
-    // Overrides JSToaster configuration
-    this.toasterConf = {...this.toasterConf, ...toasterConf};
     // Overrides notifications default definition
     this.toastConf = {
       position: toasterConf.position || this.toastConf.position,
       type: toasterConf.type || this.toastConf.type,
       displayTime: toasterConf.displayTime >= 0?toasterConf.displayTime:this.toastConf.displayTime,
-      dark: toasterConf.dark || this.toastConf.dark
+      dark: (toasterConf.dark !== undefined || toasterConf.dark !== null)?toasterConf.dark:this.toastConf.dark
     }
   }
 
   constructor() {
-    // Default JSToaster configuration
-    this.toasterConf = defaultToastConf;
-    // Default notifications definition
-    this.toastConf = {
-      position: defaultToastConf.position,
-      type: defaultToastConf.type,
-      displayTime: defaultToastConf.displayTime,
-      dark: defaultToastConf.dark
-    }
   }
 
   /**

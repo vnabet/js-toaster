@@ -12,7 +12,12 @@ declare type BaseToast = {
   dark?: boolean;
 }
 
-declare type ToasterConf = BaseToast;
+declare type ToasterConf = BaseToast & {
+  marginTop?: number;
+  marginBottom?: number;
+  mobilePosition?: ToastMobilePosition;
+  mobileMargin?: number;
+};
 
 declare type Toast = BaseToast & {
   title?: string;
@@ -21,6 +26,7 @@ declare type Toast = BaseToast & {
 }
 
 declare type ToastPosition = 'topLeft' | 'topRight' | 'bottomRight' | 'bottomLeft';
+declare type ToastMobilePosition = 'top' | 'bottom';
 declare type ToastType = 'info' | 'success' | 'warning' | 'danger';
 
 declare type ToastHandler = {(id:number):void};

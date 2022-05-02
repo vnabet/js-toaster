@@ -11,7 +11,12 @@ export type BaseToast = {
 /**
  * Configuration type definition
  */
-export type ToasterConf = BaseToast;
+export type ToasterConf = BaseToast & {
+  marginTop?: number;
+  marginBottom?: number;
+  mobilePosition?: ToastMobilePosition;
+  mobileMargin?: number;
+};
 
 /**
  * Toast (notification) type definition
@@ -23,7 +28,6 @@ export type Toast = BaseToast & {
   timestamp?:number;
   link?: string | boolean;
   //TODO soundUrl
-  //TODO click event on toast
   //TODO Image ?
 }
 
@@ -35,6 +39,14 @@ export enum ToastPosition {
   topRight =  'topRight',
   bottomRight = 'bottomRight',
   bottomLeft = 'bottomLeft'
+}
+
+/**
+ * Toast screen position on mobile
+ */
+export enum ToastMobilePosition {
+  top = 'top',
+  bottom = 'bottom'
 }
 
 /**
