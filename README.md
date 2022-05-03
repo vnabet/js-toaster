@@ -7,7 +7,7 @@ Agnostic and responsive notifications javascript module
 
 ![](./screenshot.jpg)
 
-- [Demonstration on jsfiddle site](https://jsfiddle.net/vnabet/owvh2c84/46/show)
+- [Demonstration on jsfiddle site](https://jsfiddle.net/vnabet/owvh2c84/76/show)
 
 ## Installation
 
