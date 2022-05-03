@@ -1,6 +1,6 @@
 {
   "name": "js-toaster",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "type": "module",
   "main": "jsToaster.js",
   "types": "jsToaster.d.ts",
