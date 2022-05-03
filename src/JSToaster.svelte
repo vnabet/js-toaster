@@ -1,17 +1,20 @@
 <div class="jstoaster" 
-  class:bottom={conf.mobilePosition === ToastMobilePosition.bottom} 
+  class:bottom={conf.mobilePosition === ToastMobilePosition.bottom}
+  class:hidden={hidden}
   style="--jstoaster-margin-top: {marginTop}; --jstoaster-margin-bottom: {marginBottom}; --jstoaster-mob-margin-top: {mobileMarginTop}; --jstoaster-mob-margin-bottom: {mobileMarginBottom}">
-  <ToastListComponent toasts={$topLeftToasts} position={ToastPosition.topLeft} on:toast-clicked on:toast-closed></ToastListComponent>
-  <ToastListComponent toasts={$topRightToasts} position={ToastPosition.topRight} on:toast-clicked on:toast-closed></ToastListComponent>
-  <ToastListComponent toasts={$bottomRightToasts} position={ToastPosition.bottomRight} on:toast-clicked on:toast-closed></ToastListComponent>
-  <ToastListComponent toasts={$bottomLeftToasts} position={ToastPosition.bottomLeft} on:toast-clicked on:toast-closed></ToastListComponent>
+  <ToastListComponent toasts={$topLeftToasts} position={ToastPosition.topLeft} on:toast-clicked on:toast-closed={toastCloseHandler} on:toast-closed></ToastListComponent>
+  <ToastListComponent toasts={$topRightToasts} position={ToastPosition.topRight} on:toast-clicked on:toast-closed={toastCloseHandler} on:toast-closed></ToastListComponent>
+  <ToastListComponent toasts={$bottomRightToasts} position={ToastPosition.bottomRight} on:toast-clicked on:toast-closed={toastCloseHandler} on:toast-closed></ToastListComponent>
+  <ToastListComponent toasts={$bottomLeftToasts} position={ToastPosition.bottomLeft} on:toast-clicked on:toast-closed={toastCloseHandler} on:toast-closed></ToastListComponent>
 </div>
 
 <script lang="ts">
   import ToastListComponent from './components/ToastList.svelte';
-  import {topLeftToasts, topRightToasts, bottomLeftToasts, bottomRightToasts} from './stores/JSToaster.store';
-  import { ToasterConf, ToastMobilePosition, ToastPosition } from './types/toast';
+  import { topLeftToasts, topRightToasts, bottomLeftToasts, bottomRightToasts, toasts} from './stores/JSToaster.store';
+  import { ToasterConf, ToastMobilePosition, ToastPosition, Toast } from './types/toast';
   import { defaultToastConf } from './defaultToastConf';
+  import {onDestroy} from 'svelte';
+  import type { Unsubscriber } from 'svelte/store';
 
   export let conf:ToasterConf = defaultToastConf;
 
@@ -19,6 +22,8 @@
   let marginBottom:string;  
   let mobileMarginTop:string;
   let mobileMarginBottom:string;
+
+  let hidden:boolean = true;
 
   $: {
     marginTop = `${conf.marginTop}px`;
@@ -31,6 +36,16 @@
       mobileMarginTop = '0px'
     }
   }
+
+  const unsub:Unsubscriber = toasts.subscribe((toastsArr:Toast[]) => {
+    if(toastsArr.length) hidden = false; 
+  })
+
+  function toastCloseHandler() {
+    hidden = $toasts.length?false:true; 
+  }
+
+  onDestroy(() => unsub())
 </script>
 
 <style>
@@ -66,6 +81,10 @@
 
   .jstoaster.bottom {
     justify-content: flex-end;
+  }
+
+  .hidden {
+    display: none;
   }
 
   :global(.jstoaster *) {

@@ -49,42 +49,39 @@
       let type;
       let displayTime;
       let link;
-      
-      const timeoutHandler = () => {
 
-      position = positions[rand(4) - 1];
-      type = types[rand(4) - 1];
-      displayTime = rand(10) + 20;
-
-      link = rand(2)-1?'https://github.com/vnabet/js-toaster':true;
-
-      // jsToaster.conf = {
-      //   dark: false,
-      //   position: 'topLeft',
-      //   displayTime: 2,
-      //   type: 'danger'
-      // }
+      jsToaster.conf = {
+        dark: false,
+        position: 'bottomLeft',
+        displayTime: 10,
+        type: 'danger'
+      }
 
       // jsToaster.conf ={
       //   dark: true
       // }
+      
+      const timeoutHandler = () => {
+        position = positions[rand(4) - 1];
+        type = types[rand(4) - 1];
+        displayTime = rand(10) + 20;
 
+        link = rand(2)-1?'https://github.com/vnabet/js-toaster':true;
 
+        const id = jsToaster.toast({
+          title: `${position} ${type} - ${lorem.generateWords(rand(3))}`,
+          message: lorem.generateSentences(1) + (link!==true?` (${link})`:''),
+          position,
+          type,
+          displayTime: rand(4) === 1 ? 0 : displayTime,
+          dark: !(rand(3) - 1),
+          link
+        });
 
-      const id = jsToaster.toast({
-        title: `${position} ${type} - ${lorem.generateWords(rand(3))}`,
-        message: lorem.generateSentences(1) + (link!==true?` (${link})`:''),
-        position,
-        type,
-        displayTime: rand(4) === 1 ? 0 : displayTime,
-        dark: !(rand(3) - 1),
-        link
-      });
+        console.log('TOAST ID', id)
 
-      console.log('TOAST ID', id)
-
-      timeoutDuration = rand(5) + 5 * 1000;
-      window.setTimeout(timeoutHandler, timeoutDuration)
+        timeoutDuration = rand(5) + 5 * 1000;
+        window.setTimeout(timeoutHandler, timeoutDuration)
       };
       
       timeoutHandler();

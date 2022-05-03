@@ -8,5 +8,5 @@ export const defaultToastConf:ToasterConf = {
   marginBottom: 0,
   marginTop: 0,
   // mobileMargin: 100,
-  mobilePosition: ToastMobilePosition.top
+  mobilePosition: ToastMobilePosition.bottom
 }
