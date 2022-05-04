@@ -37,6 +37,15 @@
     dispatch('toast-closed', toast.id);
   })
 
+  // onMount(() => {
+  //   const audio = new Audio();
+  //   audio.addEventListener('canplaythrough',() => {
+  //     audio.play();
+  //     console.log('LLLLLLLLLLLL')
+  //   }, {once: true})
+  //   audio.src = 'https://actions.google.com/sounds/v1/cartoon/pop.ogg'
+  // })
+
   /**
    * Close the toast
    */
