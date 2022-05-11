@@ -29,16 +29,16 @@
     "minifyJS": "terser ./dist/jsToaster.js --compress --toplevel --mangle -o ./dist/jsToaster.min.js"
   },
   "devDependencies": {
-    "@sveltejs/vite-plugin-svelte": "^1.0.0-next.42",
+    "@sveltejs/vite-plugin-svelte": "^1.0.0-next.44",
     "@tsconfig/svelte": "^2.0.1",
     "cpy-cli": "^4.1.0",
     "lorem-ipsum": "^2.0.4",
-    "svelte": "^3.47.0",
+    "svelte": "^3.48.0",
     "svelte-check": "^2.7.0",
     "svelte-preprocess": "^4.10.6",
     "terser": "^5.13.1",
     "tslib": "^2.4.0",
     "typescript": "^4.6.4",
-    "vite": "^2.9.6"
+    "vite": "^2.9.9"
   }
 }
